@@ -1,5 +1,6 @@
 # High-resolution networks (HRNets) for object detection
 ## Introduction
+This is a simple instruction to use the HRNet object detection module. For more details visit the original repo [https://github.com/HRNet/HRNet-Object-Detection](https://github.com/HRNet/HRNet-Object-Detection)
 
 <div align=center>
 
@@ -42,13 +43,6 @@ python setup.py install
 python setup.py install --user
 ````
 For more details, see [INSTALL.md](INSTALL.md)
-
-#### HRNetV2 pretrained models
-```bash
-cd mmdetection-hrnet
-# Download pretrained models into this folder
-mkdir hrnetv2_pretrained
-```
 
 #### Train (multi-gpu training)
 Please specify the configuration file in `configs` (learning rate should be adjusted when the number of GPUs is changed).
