@@ -49,12 +49,12 @@ Please specify the configuration file in `configs` (learning rate should be adju
 ````bash
 python -m torch.distributed.launch --nproc_per_node <GPUS NUM> tools/train.py <CONFIG-FILE> --launcher pytorch
 # example:
-python -m torch.distributed.launch --nproc_per_node 4 tools/train.py configs/hrnet/faster_rcnn_hrnetv2p_w18_1x.py --launcher pytorch
+python -m torch.distributed.launch --nproc_per_node 4 tools/train.py configs/hrnet/PE_faster_rcnn_hrnetv2p_w18_1x.py --launcher pytorch
 ````
 
 #### Test
 ````bash
 python tools/test.py <CONFIG-FILE> <MODEL WEIGHT> --gpus <GPUS NUM> --eval bbox --out result.pkl
 # example:
-python tools/test.py configs/hrnet/faster_rcnn_hrnetv2p_w18_1x.py work_dirs/faster_rcnn_hrnetv2p_w18_1x/model_final.pth --gpus 4 --eval bbox --out result.pkl
+python tools/test.py configs/hrnet/faster_rcnn_hrnetv2p_w18_1x.py work_dirs/PE_faster_rcnn_hrnetv2p_w18_1x/model_final.pth --gpus 4 --eval bbox --out result.pkl
 ````
