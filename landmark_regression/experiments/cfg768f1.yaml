@@ -1,0 +1,120 @@
+AUTO_RESUME: true
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: true
+DATA_DIR: ''
+GPUS: (0,)
+OUTPUT_DIR: 'output_768cv'
+LOG_DIR: 'log'
+WORKERS: 0
+PRINT_FREQ: 200
+
+DATASET:
+  COLOR_RGB: true
+  DATASET: PEdataset
+  DATA_FORMAT: jpg
+  FLIP: false
+  NUM_JOINTS_HALF_BODY: 8
+  PROB_HALF_BODY: -1.0
+  ROOT: 'data/PE/'
+  ROT_FACTOR: 30
+  SCALE_FACTOR: 0.25
+  TEST_SET: validf1
+  TRAIN_SET: trainf1
+MODEL:
+  INIT_WEIGHTS: true
+  NAME: my_hrnet768
+  NUM_JOINTS: 11
+  PRETRAINED: ''
+  TARGET_TYPE: gaussian
+  IMAGE_SIZE:
+  - 768
+  - 768
+  HEATMAP_SIZE:
+  - 768
+  - 768
+  SIGMA: 2
+  EXTRA:
+    PRETRAINED_LAYERS:
+    - 'conv1'
+    - 'bn1'
+    - 'conv2'
+    - 'bn2'
+    - 'layer1'
+    - 'transition1'
+    - 'stage2'
+    - 'transition2'
+    - 'stage3'
+    - 'transition3'
+    - 'stage4'
+    FINAL_CONV_KERNEL: 1
+    STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 32
+      - 64
+      FUSE_METHOD: SUM
+    STAGE3:
+      NUM_MODULES: 4
+      NUM_BRANCHES: 3
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 32
+      - 64
+      - 128
+      FUSE_METHOD: SUM
+    STAGE4:
+      NUM_MODULES: 3
+      NUM_BRANCHES: 4
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 32
+      - 64
+      - 128
+      - 256
+      FUSE_METHOD: SUM
+LOSS:
+  USE_TARGET_WEIGHT: true
+TRAIN:
+  BATCH_SIZE_PER_GPU: 9
+  SHUFFLE: true
+  BEGIN_EPOCH: 0
+  END_EPOCH: 180
+  OPTIMIZER: adam
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP:
+  - 120
+  - 170
+  WD: 0.0001
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  MOMENTUM: 0.9
+  NESTEROV: false
+TEST:
+  BATCH_SIZE_PER_GPU: 16
+  MODEL_FILE: ''
+  FLIP_TEST: false
+  POST_PROCESS: true
+  SHIFT_HEATMAP: true
+DEBUG:
+  DEBUG: false
+  SAVE_BATCH_IMAGES_GT: true
+  SAVE_BATCH_IMAGES_PRED: true
+  SAVE_HEATMAPS_GT: false
+  SAVE_HEATMAPS_PRED: false
