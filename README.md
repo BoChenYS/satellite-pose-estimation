@@ -1,13 +1,13 @@
 # [Satellite Pose Estimation with Deep Landmark Regression and Nonlinear Pose Refinement (ICCVW 2019)](https://arxiv.org/abs/1908.11542)
 
-We propose the following pipeline for satellite pose estimation.
+### We propose the following pipeline for satellite pose estimation.
 ![](images/spe_pipeline.png)
 
-Our approach won the 1st place in the [Kelvin's Pose Estimation Challenge](https://kelvins.esa.int/satellite-pose-estimation-challenge/home/).
+### Our approach won the 1st place in the [Kelvin's Pose Estimation Challenge](https://kelvins.esa.int/satellite-pose-estimation-challenge/home/).
 
-Tha relevant dataset can be downloaded from [https://kelvins.esa.int/satellite-pose-estimation-challenge/data/](https://kelvins.esa.int/satellite-pose-estimation-challenge/data/). 
+### Tha relevant dataset can be downloaded from [https://kelvins.esa.int/satellite-pose-estimation-challenge/data/](https://kelvins.esa.int/satellite-pose-estimation-challenge/data/). 
 
-Cite this work
+### Cite this work:
 ````
 @InProceedings{chen2019satellite,
   title={Satellite Pose Estimation with Deep Landmark Regression and Nonlinear Pose Refinement},
